@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-size: 19px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.texting {
+  color: #1C1C1C !important;
+}
+.buttonPlu {
+  background-color: #4F46E5;
+  border-radius: 8px;
+  width: 50%;
+  font-size: 1em;
+  color: #FFFFFF;
+}
+/* Vector */
+.vector {
+position: absolute;
+left: 18.75%;
+right: 18.75%;
+top: 9.38%;
+bottom: 9.38%;
+
+/* white */
+background: #FFFFFF;
+}
