@@ -1,5 +1,4 @@
-import React from 'react'
-import LoginButt from './btnComps/LoginButt'
+import LoginButt from './LoginButt'
 
 export default function ButLogin() {
 return (
@@ -9,5 +8,5 @@ return (
                 Login
             </div>
     </button>
-)
+    )
 }
