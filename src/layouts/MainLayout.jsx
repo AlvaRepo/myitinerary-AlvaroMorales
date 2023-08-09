@@ -8,9 +8,7 @@ export default function MainLayout({children}) {
         <NavBar />
         <div className="bg-[#b6b4ff] flex my-10">
             <DiscoverSection />
-
             {children}
-            
         </div>
     </>
 )

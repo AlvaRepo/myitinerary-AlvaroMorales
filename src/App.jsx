@@ -1,6 +1,7 @@
 import Arrow from './components/Arrow'
 import MainLayout from './layouts/MainLayout'
 import CardTravel from './components/CardTravel'
+import Home from './pages/Home'
 function App() {
   let data = [
     {id: 'america1', city: "Cancun", photo: "/img/america/cancun.jpg"},
@@ -23,18 +24,7 @@ function App() {
   return (
     
       <MainLayout > 
-        <main className='w-1/2'>
-          <div className='flex items-center'>
-            
-          <Arrow direction='M15.75 19.5L8.25 12l7.5-7.5'/>
-            <div className='flex flex-wrap items-center w-11/12'>
-              {data.slice(0,4).map(each=><CardTravel key={each.id} src={each.photo} alt= {each.city} txtdesc={each.city}/> )}
-              
-
-            </div>
-          <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-          </div>
-        </main>
+        <Home />
       </MainLayout>
       
   )
