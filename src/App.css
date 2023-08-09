@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-size: 19px;
+/* * {
+  font-size: 18px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
@@ -14,7 +14,7 @@
   width: 50%;
   font-size: 1em;
   color: #FFFFFF;
-}
+} */
 /* Vector */
 .vector {
 position: absolute;

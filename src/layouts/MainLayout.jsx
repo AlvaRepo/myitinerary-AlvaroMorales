@@ -1,6 +1,5 @@
 import NavBar from "../components/NavBar";
 import DiscoverSection from "../components/DiscoverSection";
-import Carrousel from "../components/Carrousel";
 // eslint-disable-next-line react/prop-types, no-unused-vars
 export default function MainLayout({children}) {
     return (
