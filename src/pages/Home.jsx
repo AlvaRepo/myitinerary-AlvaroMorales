@@ -1,6 +1,7 @@
-import Arrow from "../components/Arrow"
-import CardTravel from "../components/CardTravel"
+import DiscoverSection from '../components/DiscoverSection';
+import Carrousel from "../components/Carrousel"
 export default function Home() {
+    
     let data = [
         {id: 'america1', city: "Cancun", photo: "/img/america/cancun.jpg"},
         {id: 'america2', city: "New York", photo: "/img/america/newyork.jpg"},
@@ -18,17 +19,12 @@ export default function Home() {
         {id: 'oceania2' , city: "Sidney", photo: "/img/oceania/sidney.jpg"},
         {id: 'oceania3' , city: "Suva", photo: "/img/oceania/suva.jpg"},
         {id: 'oceania4' , city: "Wellington", photo: "/img/oceania/wellington.jpg"}
-      ]
+    ]
     return (
-        <main className='w-1/2'>
-            <div className='flex items-center'>
-            
-            <Arrow direction='M15.75 19.5L8.25 12l7.5-7.5'/>
-            <div className='flex flex-wrap items-center w-11/12'>
-                {data.slice(0,4).map(each=><CardTravel key={each.id} src={each.photo} alt= {each.city} txtdesc={each.city}/> )}
-            </div>
-            <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-            </div>
+        <main className='flex'>
+            <DiscoverSection />
+            {}
+            <Carrousel data={data}/>
         </main>
     )
 }
