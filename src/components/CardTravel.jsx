@@ -1,13 +1,12 @@
-
-export default function CardTravel(src, alt ,txtdesc) {
+export default function CardTravel({src, alt ,txtdesc}) {
     return (
-        <div className='flex flex-row items-center mt-4'>
-            <div className="">carrousel</div>
-            <div className="flex-col bg-sky-300/95 rounded-xl items-center p-3">                 
-                <h2 className="font-bold w-full text-xl md:text-2xl lg:text-4xl text-justify">Titulo</h2>
-                <p className="text-justify">{txtdesc}</p>
-                <img src={src} alt={alt} />
-            </div>
-        </div>
+            <div className='w-1/2 rounded p-1'>
+                <div className="absolute h-1/3 ml-3">                 
+                    <h2 className="font-bold text-md md:text-2xl lg:text-4xl text-white drop-shadow-md">{alt}</h2>
+                    <p className="text-justify text-white">{txtdesc}</p>
+                </div>
+                  {/* Imágen de Fondo */}
+                <img className= 'w-full md:w-full lg:w-full rounded-lg' src={src} alt={alt} />
+            </div>  
     )
 }

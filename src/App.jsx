@@ -1,6 +1,6 @@
-import './App.css'
-import NavBar from './components/NavBar'
+import Arrow from './components/Arrow'
 import MainLayout from './layouts/MainLayout'
+import CardTravel from './components/CardTravel'
 function App() {
   let data = [
     {id: 'america1', city: "Cancun", photo: "/img/america/cancun.jpg"},
@@ -23,45 +23,18 @@ function App() {
   return (
     
       <MainLayout > 
-        <div className='grid grid-rows-2 md:grid-cols-2 gap-2 w-1/2'>
-            <div className='rounded p-1'>
-                <div className="absolute h-1/3 ml-3">                 
-                    <h2 className="font-bold text-md md:text-2xl lg:text-4xl text-white drop-shadow-md">{data[0].city}</h2>
-                    <p className="text-justify text-white">{data[0].city}</p>
-                </div>
-                
-                {/* Imágen de Fondo */}
-                <img className= 'w-full md:w-full lg:w-full rounded-lg' src={data[0].photo} alt={data[0].city} />
-            </div>  
-            <div className='rounded p-1'>
-                <div className="absolute h-1/3 ml-3">                 
-                    <h2 className="font-bold text-md md:text-2xl lg:text-4xl text-white drop-shadow-md">{data[0].city}</h2>
-                    <p className="text-justify text-white">{data[0].city}</p>
-                </div>
-                
-                {/* Imágen de Fondo */}
-                <img className= 'w-full md:w-full lg:w-full rounded-lg' src={data[0].photo} alt={data[0].city} />
-            </div>  
-            <div className='rounded p-1'>
-                <div className="absolute h-1/3 ml-3">                 
-                    <h2 className="font-bold text-md md:text-2xl lg:text-4xl text-white drop-shadow-md">{data[0].city}</h2>
-                    <p className="text-justify text-white">{data[0].city}</p>
-                </div>
-                
-                {/* Imágen de Fondo */}
-                <img className= 'w-full md:w-full lg:w-full rounded-lg' src={data[0].photo} alt={data[0].city} />
-            </div>  
-            <div className='rounded p-1'>
-                <div className="absolute h-1/3 ml-3">                 
-                    <h2 className="font-bold text-md md:text-2xl lg:text-4xl text-white drop-shadow-md">{data[0].city}</h2>
-                    <p className="text-justify text-white">{data[0].city}</p>
-                </div>
-                
-                {/* Imágen de Fondo */}
-                <img className= 'w-full md:w-full lg:w-full rounded-lg' src={data[0].photo} alt={data[0].city} />
-            </div>  
+        <main className='w-1/2'>
+          <div className='flex items-center'>
+            
+          <Arrow direction='M15.75 19.5L8.25 12l7.5-7.5'/>
+            <div className='flex flex-wrap items-center w-11/12'>
+              {data.slice(0,4).map(each=><CardTravel key={each.id} src={each.photo} alt= {each.city} txtdesc={each.city}/> )}
+              
+
+            </div>
+          <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5"/>
           </div>
-          
+        </main>
       </MainLayout>
       
   )
