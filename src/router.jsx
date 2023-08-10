@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Cities from "./pages/Cities";
 import CityDetail from "./pages/CityDetail";
+import NotFound from "./components/NotFound";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,9 +15,12 @@ const router = createBrowserRouter([
         { path: "/home", element: <Home /> },
         { path: "/index", element: <Home /> },
         { path: "/signin", element: <SignIn /> },
+        { path: "/Login", element: <SignIn /> },
         { path: "/signup", element: <SignUp /> },
-        { path: "/cities", element: <Cities /> },
-        { path: "/city", element: <CityDetail /> },
+        { path: "/city", element: <Cities /> },
+        { path: "/city/:city_id", element: <CityDetail /> },
+        { path: "/*", element: <NotFound /> },
+
     ],
   },
 ]);

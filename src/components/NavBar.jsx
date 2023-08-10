@@ -4,6 +4,8 @@ import HambContent from "./HambContent";
 import MyTineraryLtr from "./MyTineraryLtr";
 import SlideHamb from "./SlideHamb";
 import { useState } from "react";
+import { Link as Anchor} from "react-router-dom";
+
 export default function NavBar() {
     let [show, setShow] = useState (true)
     return (
