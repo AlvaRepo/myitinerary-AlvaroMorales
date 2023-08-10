@@ -1,13 +1,9 @@
-import MainLayout from './layouts/MainLayout'
-import Home from './pages/Home'
+import router from './router'
+import { RouterProvider } from 'react-router-dom'
 function App() {
 
   return (
-    
-      <MainLayout > 
-        <Home />
-      </MainLayout>
-      
+      <RouterProvider router={router} />
   )
 }
 

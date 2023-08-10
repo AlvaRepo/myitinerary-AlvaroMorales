@@ -1,9 +1,9 @@
 // eslint-disable-next-line react/prop-types
 export default function CardTravel({src, alt ,txtdesc}) {
     return (
-            <div className='w-1/2 rounded p-1 select-none'>
+            <div className='w-1/2 rounded p-1 select-none '>
                 <div className="absolute h-1/3 ml-3">                 
-                    <h2 className="font-bold text-md md:text-2xl lg:text-4xl text-white drop-shadow-md">{alt}</h2>
+                    <h2 className="font-bold text-sm md:text-xl lg:text-4xl text-white ">{alt}</h2>
                     <p className="text-justify text-white">{txtdesc}</p>
                 </div>
                   {/* Imágen de Fondo */}

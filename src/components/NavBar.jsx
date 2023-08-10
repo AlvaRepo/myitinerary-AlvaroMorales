@@ -1,18 +1,19 @@
-import ButLogin from './ButLogin'
+import Island from "./island";
+import HambMenu from "./HambMenu";
+import HambContent from "./HambContent";
+import MyTineraryLtr from "./MyTineraryLtr";
+import SlideHamb from "./SlideHamb";
+import { useState } from "react";
 export default function NavBar() {
-return (
-        <nav className='mt-12 mx-20 flex h-6 items-center'>
-            <div className='font-bold flex-1 w-2/3 '>
-            <a className='text-xl ' href="#">My Tinerary</a>
-            </div>
-            <div className='flex gap-x-3 items-center'>
-                
-                <a className='font-semibold w-1/3' href="#">Home</a>
-                <a className='font-semibold w-1/3' href="#">Cities</a>
-                <ButLogin />
-            </div>
-            
+    let [show, setShow] = useState (true)
+    return (
+        <nav className="mt-10 mx-10 flex h-6 items-center">
+            <Island />
+            <MyTineraryLtr />
+            {show ? <div></div> : <SlideHamb />}
+            <HambContent />
+                    
+            <HambMenu onClick={() => setShow(!show)} />
         </nav>
-
-)
+    );
 }
