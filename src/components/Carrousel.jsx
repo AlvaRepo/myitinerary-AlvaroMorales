@@ -1,18 +1,47 @@
 import CardTravel from "./CardTravel";
-import DiscoverSection from "./DiscoverSection"
-export default function Carrousel() {
-console.log();
+import Arrow from "./Arrow";
+import { useState } from "react";
+
+// eslint-disable-next-line react/prop-types
+export default function Carrousel({ data }) {
+//Slide prev y next
+let [counter, setCounter] = useState(0); // Variable de inicio
+let [counterTo, setCounterTo] = useState(4); // Variable de Final
+function next_slide () {
+    if (data.length === counterTo){
+        setCounter(0);
+        setCounterTo(4);
+    } else {
+        setCounter(counter+4);
+        setCounterTo(counterTo+4);
+    }
+}
+function prev_slide () {
+    if (counter === 0){
+        setCounter(data.length-4);
+        setCounterTo(data.length);
+    } else {
+        setCounter(counter-4);
+        setCounterTo(counterTo-4);
+    }
+}
         return (
         <>
-                <div className='flex flex-col items-center mt-4'>
-            <div className="">carrousel</div>
-            <div className="flex-col bg-sky-300/95 rounded-xl items-center p-3">                 
-                <h2 className="font-bold w-full text-xl md:text-2xl lg:text-4xl text-justify">Titulo</h2>
-                <p className="text-justify">{txtdesc}</p>
-                <img src={src} alt={alt} />
+            <div className='flex items-center w-1/2'>
+            
+            <Arrow onClick={prev_slide} direction='M15.75 19.5L8.25 12l7.5-7.5'/>
+            <div className='flex flex-wrap items-center w-11/12'>
+                { data.slice(counter,counterTo).map(each=>
+                    <CardTravel 
+                        key={each.id} 
+                        src={each.photo} 
+                        alt= {each.city} 
+                        txtdesc={each.city}
+                    /> 
+                )}
             </div>
-        </div>
-            {/* <CardTravel  src={data[0].photo} alt={data[0].city} txtdesc={data[0].city}/> */}
+            <Arrow onClick={next_slide} direction="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+            </div>
         </>
     )
 }
