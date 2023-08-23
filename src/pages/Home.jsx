@@ -1,15 +1,19 @@
 import DiscoverSection from '../components/DiscoverSection';
-import Carrousel from "../components/Carrousel"
+import Carrousel from "../components/Carrousel";
 import Footer from '../components/Footer';
 import { useState } from "react";
 import { useEffect } from 'react';
 import axios from 'axios';
+import apiUrl from '../apiUrl';
+
 export default function Home() {
-    const [data, setData] = useState([])
+
+const [data, setData] = useState([])
 useEffect(() => {
-    axios('./data.json')
-        .then(res=>setData(res.data))
-        .catch(err=>console.log(err))
+    axios(apiUrl + 'cities/carousel')
+    // .then(res=>console.log(res.data.data_carousel))
+    .then(res=>setData(res.data.data_carousel))
+    .catch(err=>console.log(err))
 }, 
 []) //vacío por lo pronto
 
