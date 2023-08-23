@@ -1,4 +1,5 @@
 
+import { Link as Anchor } from "react-router-dom";
 export default function DiscoverSection() {
     return (
             <div className="lg:w-1/2 my-4 py-7">
@@ -10,9 +11,12 @@ export default function DiscoverSection() {
                         <p className="text-base md:text- lg:text-xl xl:text-3xl my-4">
                             Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.
                         </p>
-                        <button className="bg-[#4F46E5] hover:bg-[#6510f9] text-lg md:text-xl lg:text-xl xl:text-2xl text-white font-bold my-4 p-4 rounded">
+                        <Anchor
+                            to='/city'
+                            className="flex justify-center w-[150px] px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-400 transition duration-300 ease-in-out"
+                            >
                             View More
-                        </button>
+                        </Anchor>
                     </div>
                 </div>
             </div>

@@ -33,11 +33,12 @@ export default function Carrousel({ data }) {
                 <div className="flex flex-wrap items-center w-11/12 ">
                     {data.slice(counter, counterTo).map((each) => (
                     <CardTravel
-                        key={each.id}
+                        key={each._id}
                         src={each.photo}
-                        alt={each.city}
+                        alt={each.country}
                         txtdesc={each.city}
-                    />
+                        loading="lazy"
+                                            />
                     ))}
                 </div>
                 <Arrow onClick={next_slide} direction="M8.25 4.5l7.5 7.5-7.5 7.5" />

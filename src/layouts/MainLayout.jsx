@@ -8,7 +8,7 @@ export default function MainLayout() {
         <div className="flex flex-col">
             <NavBar />
         </div>
-        <div className="bg-[#b6b4ff] flex my-10">
+        <div className="bg-[#b6b4ff] flex-col my-10 ">
             <Outlet />
         </div>
     </>
