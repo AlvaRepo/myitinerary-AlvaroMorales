@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import Cities from "./pages/Cities";
 import CityDetail from "./pages/CityDetail";
 import NotFound from "./components/NotFound";
+import Forms from "./components/Form";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
         { path: "/signup", element: <SignUp /> },
         { path: "/city", element: <Cities /> },
         { path: "/city/:city_id", element: <CityDetail /> },
-        { path: "/*", element: <NotFound /> },
-
+        { path: "/auth/signup", element: <Forms />},
+        { path: "/*", element: <NotFound /> }
     ],
   },
 ]);

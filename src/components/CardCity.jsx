@@ -5,7 +5,7 @@ export default function CardCity({src, alt ,txtdesc, c_id}) {
     return (
             <div className='flex rounded select-none z-[2] justify-center'>
                 <div className="relative">
-                <div className="absolute flex-col items-center w-[200px] bg-black bg-opacity-40 hover:bg-opacity-50 rounded-lg items-center">                 
+                <div className="absolute flex-col w-[200px] bg-black bg-opacity-40 hover:bg-opacity-50 rounded-lg items-center">                 
                     <h2 className="text-center font-bold text-sm md:text-2xl lg:text-3xl text-white px-3">
                         {alt}
                     </h2>

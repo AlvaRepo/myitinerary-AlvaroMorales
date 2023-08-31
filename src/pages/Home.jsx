@@ -27,7 +27,6 @@ useEffect(() => {
                 <DiscoverSection />
                 <Carrousel data={data}/>
             </div>
-            <Footer />
         </main>
     )
 }

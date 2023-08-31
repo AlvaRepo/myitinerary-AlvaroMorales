@@ -16,8 +16,8 @@ const CityDetail = () => {
       <img className="w-full"src={photo} alt="city img" />
       <p >{text}</p>
       <Anchor to='/city' className="bg-white animate-pulse font-semibold w-1/3 text-4xl lg:text-3xl 2xl:text-4xl">
-  If you want to come back to Cities - CLICK HERE!
-</Anchor>
+        If you want to come back to Cities - CLICK HERE!
+      </Anchor>
 
 
     </div>
