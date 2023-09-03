@@ -1,36 +1,26 @@
 import {useState, useEffect, useRef} from 'react';
-import axios from 'axios';
-import apiUrl from '../apiUrl.js';
 import CardCity from '../components/CardCity.jsx'
 import NotFoundMessage from '../components/NotFoundMessage.jsx';
-import CardTravel from '../components/CardTravel.jsx'
+import { useSelector, useDispatch } from 'react-redux'
+import city_actions from '../store/actions/cities.js'
+
+const { read_cities } = city_actions
 
 export default function Cities() {
-  const [cities, setCities] = useState([]);
+  const cities = useSelector(store => store.cities.cities) 
   const [reEffect, setReEffect] = useState(true);
-  const [notFound, setNotFound] = useState(false);
-    const text = useRef();
+  const text = useRef();
+  const dispatch = useDispatch()
     useEffect(() => {
-      setNotFound(false);
-      axios(apiUrl + 'cities?city=' + text.current.value)
-        .then((res) => {
-          console.log(res.data.response)
-          if (res.data.response.length === 0) {
-            setNotFound(true);
-          } else {
-            setCities(res.data.response);
-          }
-        })
-        .catch((err) => setNotFound(true));
+      dispatch (read_cities({ text:text.current?.value}))
     }, [reEffect]);
   
     function handleFilter() {
       setReEffect(!reEffect);
     }
-
+    console.log(cities)
   return (
     <>
-
       <div className='flex flex-col'>
         
         <div className="w-full flex flex-col items-center justify-center h-1/2 py-10" >
@@ -74,16 +64,13 @@ export default function Cities() {
 
         </div>
         <div className='h-1/2 bg-white bg-opacity-20 py-10 flex flex-row w-auto items-center justify-center z-[2]'>
-          {notFound ? (<NotFoundMessage />) : (
+          {cities.length===0 ? (<NotFoundMessage />) : (
                 cities.slice(0,4).map((each) => (
-                  <div className='w-full p-3'>
-                    <CardCity key={each._id} src={each.photo} alt={each.city} txtdesc={each.country} c_id={each._id}/>
-                  </div>
+                    <CardCity className='w-100' key={each._id} src={each.photo} alt={each.city} txtdesc={each.country} c_id={each._id}/>
                 ))
             )
           }
         </div>
-     
 
         </div>
     </>

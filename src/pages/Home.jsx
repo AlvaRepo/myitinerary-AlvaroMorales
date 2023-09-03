@@ -1,21 +1,8 @@
 import DiscoverSection from '../components/DiscoverSection';
 import Carrousel from "../components/Carrousel";
 import Footer from '../components/Footer';
-import { useState } from "react";
-import { useEffect } from 'react';
-import axios from 'axios';
-import apiUrl from '../apiUrl';
 
 export default function Home() {
-
-const [data, setData] = useState([])
-useEffect(() => {
-    axios(apiUrl + 'cities/carousel')
-    // .then(res=>console.log(res.data.data_carousel))
-    .then(res=>setData(res.data.data_carousel))
-    .catch(err=>console.log(err))
-}, 
-[]) //vacío por lo pronto
 
     return (
         <main >
@@ -25,7 +12,7 @@ useEffect(() => {
 
             <div className='flex flex-col-reverse justify-center lg:flex-row xl:flex flex-row 2xl:flex'>
                 <DiscoverSection />
-                <Carrousel data={data}/>
+                <Carrousel/>
             </div>
             <Footer />
         </main>
