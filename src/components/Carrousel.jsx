@@ -1,14 +1,27 @@
 import CardTravel from "./CardTravel";
 import Arrow from "./Arrow";
 import { useState } from "react";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import city_actions from '../store/actions/cities.js'
 
-// eslint-disable-next-line react/prop-types
-export default function Carrousel({ data }) {
-  //Slide prev y next
-  let [counter, setCounter] = useState(0); // Variable de inicio
-  let [counterTo, setCounterTo] = useState(4); // Variable de Final
+const { read_carousel } = city_actions
+
+export default function Carrousel() {
+const carousel = useSelector(store => store.cities.carousel)
+const dispatch = useDispatch()
+useEffect( 
+    ()=>{
+        if (carousel.length===0){
+                    dispatch (read_carousel())
+                }
+            }, 
+[]) //vacío por lo pronto
+//Slide prev y next
+let [counter, setCounter] = useState(0); // Variable de inicio
+let [counterTo, setCounterTo] = useState(4); // Variable de Final
     function next_slide() {
-        if (data.length === counterTo) {
+        if (carousel.length === counterTo) {
         setCounter(0);
         setCounterTo(4);
         } else {
@@ -18,8 +31,8 @@ export default function Carrousel({ data }) {
     }
     function prev_slide() {
         if (counter === 0) {
-        setCounter(data.length - 4);
-        setCounterTo(data.length);
+        setCounter(carousel.length - 4);
+        setCounterTo(carousel.length);
         } else {
         setCounter(counter - 4);
         setCounterTo(counterTo - 4);
@@ -31,7 +44,7 @@ export default function Carrousel({ data }) {
             <div className="md:p-3 flex items-center justify-center mx-full">
                 <Arrow onClick={prev_slide} direction="M15.75 19.5L8.25 12l7.5-7.5" />
                 <div className="flex flex-wrap items-center w-11/12 ">
-                    {data.slice(counter, counterTo).map((each) => (
+                    {carousel.slice(counter, counterTo).map((each) => (
                     <CardTravel
                         key={each._id}
                         src={each.photo}
