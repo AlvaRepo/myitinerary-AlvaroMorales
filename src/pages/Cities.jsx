@@ -25,7 +25,7 @@ export default function Cities() {
         
         <div className="w-full flex flex-col items-center justify-center h-1/2 py-10" >
               <div>
-              <div className='p-16 relative text-white text-sm sm:text-base md:text-xl lg:text-2xl xl:text-4xl drop-shadow-xl'>
+              <div className='p-16 relative text-black text-sm sm:text-base md:text-xl lg:text-2xl xl:text-4xl drop-shadow-xl'>
                   Collection of the most beautiful places and experiences.
               </div>
                 <div>
@@ -66,7 +66,7 @@ export default function Cities() {
         <div className='h-1/2 bg-white bg-opacity-20 py-10 flex flex-row w-auto items-center justify-center z-[2]'>
           {cities.length===0 ? (<NotFoundMessage />) : (
                 cities.slice(0,4).map((each) => (
-                    <CardCity className='w-100' key={each._id} src={each.photo} alt={each.city} txtdesc={each.country} c_id={each._id}/>
+                    <CardCity className='w-150' key={each._id} src={each.photo} alt={each.city} txtdesc={each.country} c_id={each._id}/>
                 ))
             )
           }

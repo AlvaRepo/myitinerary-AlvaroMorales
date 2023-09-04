@@ -9,7 +9,7 @@ import { Link as Anchor} from "react-router-dom";
 export default function NavBar() {
     let [show, setShow] = useState (true)
     return (
-        <nav className="mt-10 mx-10 flex h-6 items-center">
+        <nav className="flex p-12 h-auto justify-center">
             <Island />
             <MyTineraryLtr />
             {show ? <div></div> : <SlideHamb />}
