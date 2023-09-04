@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return (
-        <div className="flex px-24 bg-white">
+        <div className="flex px-24 bg-gray-200">
             <div className="w-1/2 p-4">
                 <ul className="list-disc">
                     <li>
