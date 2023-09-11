@@ -2,10 +2,10 @@
 import { Link as Anchor } from "react-router-dom";
 export default function DiscoverSection() {
     return (
-            <div className="lg:w-1/2 my-4 py-7">
-                <div className="flex justify-center w-auto">
+            <div className="lg:w-3/6 my-4 py-7">
+                <div className="flex justify-center w-full">
                     <div className="w-auto md:w-4/5 lg:w-3/5 mx-5">
-                        <h3 className="font-bold text-sm md:text-xl lg:text-3xl xl:text-5xl">
+                        <h3 className="font-bold text-sm md:text-lg lg:text-3xl xl:text-5xl">
                             Find the perfect destination
                         </h3>
                         <p className="text-base md:text- lg:text-xl xl:text-3xl my-4">

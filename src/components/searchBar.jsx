@@ -1,38 +1,40 @@
-import React from "react";
+import React, { useState } from 'react';
 
-const SearchBar = ({text}, {cities}) => {
-    function handleFilter (text) {
-        console.log(text)
-    }
+function SearchBar() {
+    const [searchText, setSearchText] = useState('');
+
+    const handleClearClick = () => {
+        setSearchText('');
+    };
+
     return (
-        <div className="relative bg-white rounded-lg shadow-md">
+        <div className="flex items-center border border-gray-300 rounded-md p-2">
             <input
-                name = 'text'
-                id= "text"
-                ref = {text}
                 type="text"
-                className="w-full py-2 pl-10 pr-4 leading-tight focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg"
-                placeholder="Search..."
-                onKeyUp={handleFilter}
+                placeholder="Buscar..."
+                className="flex-1 outline-none p-2"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
             />
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg
-                className="w-5 h-5 text-gray-400"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {searchText && (
+                <button
+                    onClick={handleClearClick}
+                    className="p-2 hover:bg-red-500 hover:text-white transition duration-300"
                 >
-                <path d="M21 21l-5.2-5.2"></path>
-                <circle cx="10" cy="10" r="8"></circle>
-                </svg>
-            </div>
-{            console.log(cities)
-}        
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            )}
         </div>
     );
-};
+}
 
 export default SearchBar;
