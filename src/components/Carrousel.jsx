@@ -40,17 +40,17 @@ let [counterTo, setCounterTo] = useState(4); // Variable de Final
     }
     return (
         <>
-        <div className="p-4 lg:w-1/2 my-4">
-            <div className="md:p-3 flex items-center justify-center mx-full">
+        <div className="p-2 lg:w-1/2 my-4">
+            <div className="md:p-3 flex items-center justify-center">
                 <Arrow onClick={prev_slide} direction="M15.75 19.5L8.25 12l7.5-7.5" />
-                <div className="flex flex-wrap items-center w-11/12 ">
+                <div className="flex flex-wrap items-center w-full ">
                     {carousel.slice(counter, counterTo).map((each) => (
                     <CardTravel
                         key={each._id}
                         src={each.photo}
                         alt={each.country}
                         txtdesc={each.city}
-                        loading="lazy"
+                        
                                             />
                     ))}
                 </div>

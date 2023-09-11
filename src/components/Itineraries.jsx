@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
 import NoItineraries from '../components/NoItineraries.jsx'
 import CardItineraries from './CardItineraries.jsx';
+import Bills from './Bills.jsx';
 
 const { read_itineraries_by_city } = itinerary_actions;
 
@@ -15,16 +16,8 @@ export default (city_id) => {
         [])
 
         function showBills(precio) {
-            if (precio === 10) {
-                return "1 billete de $10";
-            } else if (precio === 200) {
-                return "5 billetes de $40";
-            } else if (precio > 10 && precio < 200) {
-                const cantidadBilletes = Math.ceil(precio / 50); //Hago que cada billete valga 50
-                return `${cantidadBilletes} billetes de $20 cada uno`;
-            } else {
-                return "Precio no válido";
-            }
+            let price = Math.round(precio/40);
+            return price
         }        
     return (
         <div>
@@ -33,8 +26,8 @@ export default (city_id) => {
                 <div key={each._id}>
                     <h3>Itinerary: {each.name}</h3>
                     <div className="flex items-start justify-between p-4 border border-gray-300 rounded-lg shadow-md">
-                        {/* Columna 1: Foto del usuario y nombre */}
-                        <div className="flex items-center">
+                        {/*username and photo*/}
+                        <div className="p-3 flex items-center">
                             <img
                                 src={each.city_id.admin_id.photo}
                                 alt={`${each.city_id.admin_id.name}'s profile`}
@@ -48,8 +41,8 @@ export default (city_id) => {
                             </div>
                         </div>
 
-                        {/* Columna 2: Hashtags */}
-                        <div className="flex flex-wrap items-center justify-center flex-grow">
+                        {/*Hashtags */}
+                        <div className="p-3 flex flex-wrap items-center justify-center flex-grow">
                             {each.tags.map((tag, index) => (
                                 <span
                                     key={index}
@@ -60,18 +53,18 @@ export default (city_id) => {
                             ))}
                         </div>
 
-                        {/* Columna 3: Duración */}
-                        <div className="text-center">
+                        {/*Duración */}
+                        <div className="p-3 text-center">
                             <p className="text-lg font-semibold">{each.duration} hours</p>
                         </div>
 
-                        {/* Columna 4: Precio */}
-                        <div className="text-center">
-                            <p className="text-lg font-semibold">{showBills(each.price)}</p>
+                        {/* Precio */}
+                        <div className="p-3 text-center">
+                            < Bills price={showBills(each.price)} />
                         </div>
 
-                        {/* Botón "View More" */}
-                        <div className="mt-4 text-center">
+                        {/*"View More" */}
+                        <div className="p-3 mt-4 text-center">
                             <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
                                     onClick={()=>setShow(!show)}>
                                 {!show ? ('View More'): ('Hide')}

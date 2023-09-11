@@ -56,6 +56,7 @@ export default function Cities() {
                   >
                     <path d="M21 21l-5.2-5.2"></path>
                     <circle cx="10" cy="10" r="8"></circle>
+                    <></>
                   </svg>
                 </div>
               </div>
@@ -63,10 +64,15 @@ export default function Cities() {
               
 
         </div>
-        <div className='h-1/2 bg-white bg-opacity-20 py-10 flex flex-row w-auto items-center justify-center z-[2]'>
+        <div className='flex flex-wrap justify-center'>
           {cities.length===0 ? (<NotFoundMessage />) : (
-                cities.slice(0,4).map((each) => (
-                    <CardCity className='w-150' key={each._id} src={each.photo} alt={each.city} txtdesc={each.country} c_id={each._id}/>
+                cities.slice(0,10).map((each) => (
+                      <CardCity 
+                        key={each._id} 
+                        src={each.photo} 
+                        alt={each.city} 
+                        txtdesc={each.country} 
+                        c_id={each._id}/>
                 ))
             )
           }
