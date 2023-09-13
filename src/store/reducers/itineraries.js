@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import city_actions from "../actions/cities.js"
 import itinerary_actions from '../actions/itineraries.js';
 
 const { read_itineraries_by_city } = itinerary_actions;

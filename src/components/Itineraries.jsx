@@ -2,17 +2,17 @@ import itinerary_actions from '../store/actions/itineraries.js';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
 import NoItineraries from '../components/NoItineraries.jsx'
-import CardItineraries from './CardItineraries.jsx';
 import Bills from './Bills.jsx';
-
+import Activities from './Activities.jsx'
 const { read_itineraries_by_city } = itinerary_actions;
-
 export default (city_id) => {
     const [show, setShow] = useState (false)
     const itineraries = useSelector(store => store.itineraries.itineraries_by_city)
     const dispatch = useDispatch()
     useEffect(
-        () => { dispatch(read_itineraries_by_city(city_id)) },
+        () => { 
+            dispatch(read_itineraries_by_city(city_id)) 
+        },
         [])
 
         function showBills(precio) {
@@ -71,10 +71,12 @@ export default (city_id) => {
                             </button>
                             
                         </div>
-                        
+
                     </div>
+                    {show ? (
+                            <Activities itinerary_id={each._id} />
+                        ): ('')}
                     
-                    {show ? (<div> Activities under construction!! </div>): ('')}
                 </div>
             ))}
 
